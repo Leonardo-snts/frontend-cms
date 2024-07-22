@@ -1,0 +1,20 @@
+.image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .image-item {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .image-item:hover {
+    border-color: #007bff;
+  }
+  

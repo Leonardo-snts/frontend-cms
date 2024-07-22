@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.btn-danger {
+  margin-left: 10px;
+}
+
+/* Template 1 styles */
+.template1 {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Template 2 styles */
+.template2 {
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
