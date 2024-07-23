@@ -7,6 +7,8 @@ import ArticleEdit from './components/ArticleEdit';
 import ArticleDetail from './components/ArticleDetail';
 import ImageUpload from './components/ImageUpload';
 import DocumentUpload from './components/DocumentUpload';
+import ImageGallery from './components/ImageGallery';
+import DocumentGallery from './components/DocumentGallery';
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
             <li className="nav-item">
               <Link className="nav-link" to="/upload-document">Upload Document</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/list-image">Imagens</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/list-docs">Documentos</Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -38,6 +46,8 @@ function App() {
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/upload-image" element={<ImageUpload />} />
           <Route path="/upload-document" element={<DocumentUpload />} />
+          <Route path="/list-image" element={<ImageGallery />} />
+          <Route path="/list-docs" element={<DocumentGallery />} />
         </Routes>
       </div>
     </div>

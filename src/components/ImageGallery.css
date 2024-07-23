@@ -1,0 +1,28 @@
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .image-item {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .image-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .image-item img:hover {
+    transform: scale(1.1);
+  }
+  
+  .image-item p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
