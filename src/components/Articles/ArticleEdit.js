@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import ImageList from './ImageList';
-import DocumentList from './DocumentList';
+import ImageList from '../Imagens/ImageList';
+import DocumentList from '../Documentos/DocumentList';
 
 const ArticleEdit = () => {
   const [title, setTitle] = useState('');

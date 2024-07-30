@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.page-list, .page-detail {
+  margin: 20px;
+}
+
+.page-detail h2, .page-detail p {
+  margin-bottom: 15px;
+}
+
+.tab-list {
+  margin-top: 20px;
+}
+
+.tab-list li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.tab-list li::before {
+  content: "• ";
+  color: #3498db;
+  font-size: 20px;
+}

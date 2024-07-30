@@ -69,3 +69,17 @@ h1 {
   margin-bottom: 20px;
 }
 
+.list-group-item {
+  margin-bottom: 10px;
+}
+
+.list-group-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-sm {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+

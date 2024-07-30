@@ -17,9 +17,9 @@ const ImageList = ({ onSelect }) => {
     return (
         <div>
             <h2>Images</h2>
-            <ul>
+            <ul className="image-gallery">
                 {images.map(image => (
-                    <li key={image.id}>
+                    <li key={image.id} className="image-item">
                         <img src={image.image_url} alt={image.title} width="100" onClick={() => onSelect(image.image_url)} />
                         {image.title}
                     </li>

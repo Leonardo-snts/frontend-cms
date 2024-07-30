@@ -1,42 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import ImageList from './ImageList';
-import DocumentList from './DocumentList';
+import ImageList from '../Imagens/ImageList';
+import DocumentList from '../Documentos/DocumentList';
 
-const ArticleForm = ({ isEditMode }) => {
+const ArticleCreate = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const { id } = useParams();
-
-    useEffect(() => {
-        if (isEditMode && id) {
-            axios.get(`http://localhost:8000/api/articles/${id}/`)
-                .then(response => {
-                    setTitle(response.data.title);
-                    setContent(response.data.content);
-                })
-                .catch(error => {
-                    console.error('There was an error fetching the article!', error);
-                });
-        }
-    }, [id, isEditMode]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const url = isEditMode ? 
-            `http://localhost:8000/api/articles/${id}/` : 
-            'http://localhost:8000/api/articles/';
-        const method = isEditMode ? 'put' : 'post';
-
-        axios[method](url, { title, content })
+        axios.post('http://localhost:8000/api/articles/', { title, content })
             .then(response => {
                 console.log(response.data);
             })
             .catch(error => {
-                console.error('There was an error creating/updating the article!', error);
+                console.error('There was an error creating the article!', error);
             });
     };
 
@@ -50,7 +30,7 @@ const ArticleForm = ({ isEditMode }) => {
 
     return (
         <div>
-            <h2>{isEditMode ? 'Edit Article' : 'Create Article'}</h2>
+            <h2>Create Article</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title:</label>
@@ -61,10 +41,10 @@ const ArticleForm = ({ isEditMode }) => {
                     />
                 </div>
                 <div>
-                    <label>Content:</label>
+                    <label>content:</label>
                     <ReactQuill value={content} onChange={setContent} />
                 </div>
-                <button type="submit">{isEditMode ? 'Update' : 'Create'}</button>
+                <button type="submit">Create</button>
             </form>
             <ImageList onSelect={handleImageSelect} />
             <DocumentList onSelect={handleDocumentSelect} />
@@ -72,4 +52,4 @@ const ArticleForm = ({ isEditMode }) => {
     );
 };
 
-export default ArticleForm;
+export default ArticleCreate;

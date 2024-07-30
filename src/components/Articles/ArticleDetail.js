@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Template1 from './Template1';
-import Template2 from './Template2';
+import Template1 from '../templates/Template1';
+import Template2 from '../templates/Template2';
 
 const ArticleDetail = () => {
   const { id } = useParams();

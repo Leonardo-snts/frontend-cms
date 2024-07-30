@@ -1,14 +1,20 @@
 // src/App.js
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import ArticleList from './components/ArticleList';
-import ArticleCreate from './components/ArticleCreate';
-import ArticleEdit from './components/ArticleEdit';
-import ArticleDetail from './components/ArticleDetail';
-import ImageUpload from './components/ImageUpload';
-import DocumentUpload from './components/DocumentUpload';
-import ImageGallery from './components/ImageGallery';
-import DocumentGallery from './components/DocumentGallery';
+import ArticleList from './components/Articles/ArticleList';
+import ArticleCreate from './components/Articles/ArticleCreate';
+import ArticleEdit from './components/Articles/ArticleEdit';
+import ArticleDetail from './components/Articles/ArticleDetail';
+import ImageUpload from './components/Imagens/ImageUpload';
+import DocumentUpload from './components/Documentos/DocumentUpload';
+import ImageGallery from './components/Imagens/ImageGallery';
+import DocumentGallery from './components/Documentos/DocumentGallery';
+import PageList from './components/Paginas/PageList';
+import PageDetail from './components/Paginas/PageDetail';
+import PageCreate from './components/Paginas/PageCreate';
+import TabCreate from './components/Abas/TabCreate';
+import PageEdit from './components/Paginas/PageEdit';
+import PageView from './components/Paginas/PageView';
 
 function App() {
   return (
@@ -35,6 +41,12 @@ function App() {
             <li className="nav-item">
               <Link className="nav-link" to="/list-docs">Documentos</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/pages">Pages</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/create-page">Create Page</Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -48,6 +60,10 @@ function App() {
           <Route path="/upload-document" element={<DocumentUpload />} />
           <Route path="/list-image" element={<ImageGallery />} />
           <Route path="/list-docs" element={<DocumentGallery />} />
+          <Route path="/pages" element={<PageList />} />
+          <Route path="/create-page" element={<PageCreate />} />
+          <Route path="/edit-page/:id" element={<PageEdit />} />
+          <Route path="/page/:slug" element={<PageView />} />
         </Routes>
       </div>
     </div>
