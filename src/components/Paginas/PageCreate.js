@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const PageCreate = () => {
   const [title, setTitle] = useState('');
@@ -18,6 +20,26 @@ const PageCreate = () => {
         console.error('There was an error creating the page!', error);
       });
   };
+
+  const modules = {
+    toolbar: [
+      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      ['link', 'image', 'video'],
+      ['clean'],
+      ['code-block']
+    ],
+  };
+
+  const formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video',
+    'code-block'
+  ];
 
   return (
     <div>
@@ -44,12 +66,12 @@ const PageCreate = () => {
           />
         </div>
         <div className="form-group">
-          <label>Content</label>
-          <textarea 
-            className="form-control" 
+          <label>Content:</label>
+          <ReactQuill 
             value={content} 
-            onChange={(e) => setContent(e.target.value)} 
-            required 
+            onChange={setContent}
+            modules={modules}
+            formats={formats}
           />
         </div>
         <button type="submit" className="btn btn-primary">Create</button>
