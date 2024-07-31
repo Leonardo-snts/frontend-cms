@@ -12,21 +12,23 @@ const PageCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log({ title, slug, content });
+
     axios.post('http://127.0.0.1:8000/api/pages/', { title, slug, content })
       .then(response => {
         navigate('/pages');
       })
       .catch(error => {
-        console.error('There was an error creating the page!', error);
+        console.error('Erro ao criar a página!', error);
       });
   };
 
   const modules = {
     toolbar: [
-      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
-      [{ size: [] }],
+      [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+      [{ 'size': [] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
       ['link', 'image', 'video'],
       ['clean'],
       ['code-block']
@@ -43,10 +45,10 @@ const PageCreate = () => {
 
   return (
     <div>
-      <h2>Create Page</h2>
+      <h2>Criar Página</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Title</label>
+          <label>Título</label>
           <input 
             type="text" 
             className="form-control" 
@@ -66,7 +68,7 @@ const PageCreate = () => {
           />
         </div>
         <div className="form-group">
-          <label>Content:</label>
+          <label>Conteúdo:</label>
           <ReactQuill 
             value={content} 
             onChange={setContent}
@@ -74,7 +76,7 @@ const PageCreate = () => {
             formats={formats}
           />
         </div>
-        <button type="submit" className="btn btn-primary">Create</button>
+        <button type="submit" className="btn btn-primary">Criar</button>
       </form>
     </div>
   );
