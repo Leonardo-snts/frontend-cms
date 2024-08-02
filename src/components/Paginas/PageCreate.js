@@ -68,12 +68,12 @@ const PageCreate = () => {
           />
         </div>
         <div className="form-group">
-          <label>Conteúdo:</label>
-          <ReactQuill 
+        <label>Content</label>
+          <textarea 
+            className="form-control" 
             value={content} 
-            onChange={setContent}
-            modules={modules}
-            formats={formats}
+            onChange={(e) => setContent(e.target.value)} 
+            required 
           />
         </div>
         <button type="submit" className="btn btn-primary">Criar</button>
